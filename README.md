@@ -1,6 +1,6 @@
 #spring-boot-base
 
-##这是一个基于spring-boot1.3.1.RELEASE和mybatis3的基础项目框架,用于快速搭建项目
+###这是一个基于spring-boot1.3.1.RELEASE和mybatis3的基础项目框架,用于快速搭建项目。
 
 - **IDE:** IntelliJ IDEA 15.0.1
 - **Server:** Apache Tomcat 9.0.0.1M1
