@@ -42,7 +42,7 @@ public class DBConfig {
 		ds.setUrl(env.getProperty("develop.jdbc.url"));
 		return ds;
 	}
-	
+
 	/**
 	 * @return 测试环境数据源
 	 */
