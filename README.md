@@ -28,6 +28,11 @@ http://localhost:8080/user/getUser?userId=5
 git rm --cached filename
 ```
 
+###请求Url示例
+```
+http://localhost:8080/user/getUser?userId=1
+```
+
 ##Git开发规范
 + branch 分支规范：
 > master ：主分支，线上部署代码
