@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
+import java.util.Map;
+
 /**
  * Created by guoshijie on 16/1/22.
  */
@@ -16,12 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserMapper userMapper;
 
-    public User getUserById(String userId) {
-        if(!StringUtils.isEmpty(userId)){
-            User user = userMapper.selectByPrimaryKey(Integer.parseInt(userId));
-            return user;
-        }
-        return null;
+    public Map getUserById(Integer id){
+        return userMapper.getUserById(id);
     }
 
 }

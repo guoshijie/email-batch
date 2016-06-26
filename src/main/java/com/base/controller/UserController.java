@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 /**
  * Created by guoshijie on 16/1/21.
  */
@@ -34,28 +36,13 @@ public class UserController extends AbstractBaseController {
     public IRestMessage getU(String userId){
         IRestMessage msg = getRestMessageWithoutUser();
         try {
+            Map map = (Map) userService.getUserById(Integer.parseInt(userId));
             msg.setCode(ErrorMessage.SUCCESS.getCode());
-            msg.setResult(userId);
+            msg.setResult(map);
             logger.info("The userId is:"+userId);
         } catch (Exception e) {
-            logger.error("后台管理用户删除失败==>" + ExceptionUtils.getStackTrace(e));
+            logger.error("查询失败==>" + ExceptionUtils.getStackTrace(e));
         }
         return msg;
     }
-
-    @RequestMapping(value = "/getUser")
-    @ResponseBody
-    public IRestMessage getUser(String userId){
-        IRestMessage msg = getRestMessageWithoutUser();
-        try {
-            logger.info("The userId is:"+userId);
-            User user = userService.getUserById(userId);
-            msg.setCode(ErrorMessage.SUCCESS.getCode());
-            msg.setResult(user);
-        } catch (Exception e) {
-            logger.error("后台管理用户删除失败==>" + ExceptionUtils.getStackTrace(e));
-        }
-        return msg;
-    }
-
 }
